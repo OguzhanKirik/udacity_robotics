@@ -1,0 +1,10 @@
+
+<launch>
+    <arg name="path" default="/home/oguz/mission_mars/src/mars/data/challenge.bag" />
+    <node pkg="rosbag" type="play" name="player" output="screen"  args="--clock $(arg path) --delay 5  ">
+    </node>
+    <node pkg="mars" type="sensor_fusion" name="sensor_fusion" output="screen">
+    </node>
+    <node pkg="mars" type="ir_positions.py" name="ir_positions" output="screen">
+    </node>
+</launch>
